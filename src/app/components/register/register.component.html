@@ -1,0 +1,29 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+  <label for="username">Usuário</label>
+  <input
+    type="text"
+    id="username"
+    name="username"
+    [(ngModel)]="model.username"
+    required
+    minlength="3"
+  />
+
+  <label for="password">Senha</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    [(ngModel)]="model.password"
+    required
+    minlength="6"
+  />
+
+  <label for="role">Tipo de Usuário</label>
+  <select id="role" name="role" [(ngModel)]="model.role" required>
+    <option value="CLIENTE">Cliente</option>
+    <option value="ADMIN">Administrador</option>
+  </select>
+
+  <button type="submit" [disabled]="form.invalid">Cadastrar</button>
+</form>

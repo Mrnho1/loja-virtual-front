@@ -1,0 +1,74 @@
+h2 {
+  color: #e0e0ff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+label {
+  width: 100px; /* largura fixa do label para alinhamento */
+  font-weight: 600;
+  color: #c6a5ff;
+  white-space: nowrap;
+}
+
+input[type="text"],
+input[type="number"] {
+  flex: 1 1 auto;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background-color: #262636;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.25s ease;
+  min-width: 0;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  background-color: #3a3a57;
+  outline: none;
+  box-shadow: 0 0 6px #9b30ffaa;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  background: linear-gradient(90deg, #6a0dad, #9b30ff);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+  user-select: none;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(90deg, #9b30ff, #6a0dad);
+}
+
+button[type="submit"]:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+

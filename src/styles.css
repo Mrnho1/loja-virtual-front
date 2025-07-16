@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Cores */
+  --color-bg-main: #1a1a2e;
+  --color-bg-container: #2c2c3f;
+  --color-bg-form: #0f0f1c;
+  --color-bg-input: #262636;
+  --color-bg-input-focus: #3a3a57;
+  --color-btn-gradient-start: #6a0dad;
+  --color-btn-gradient-end: #9b30ff;
+  --color-btn-disabled: #999;
+  --color-text: white;
+  --color-error: #ff4d4d;
+  --color-success: #32cd32;
+  --color-btn-border: #fff;
+  --color-btn-ghost-hover: rgba(255, 255, 255, 0.07);
+
+  /* Fontes e tamanhos */
+  --font-family-base: 'Inter', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+
+  /* Espaçamentos */
+  --spacing-xs: 5px;
+  --spacing-sm: 8px;
+  --spacing-md: 10px;
+  --spacing-lg: 12px;
+  --spacing-xl: 15px;
+  --spacing-xxl: 20px;
+
+  /* Bordas */
+  --border-radius-sm: 10px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 25px;
+
+  /* Outros */
+  --box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+/* Reset CSS por Eric Meyer */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html, body {
+  height: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  outline: none;
+  background: none;
+  border: none;
+}

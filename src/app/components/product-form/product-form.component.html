@@ -1,0 +1,17 @@
+<h2 *ngIf="!productToEdit">Cadastrar Produto</h2>
+<h2 *ngIf="productToEdit">Editar Produto</h2>
+
+<form #form="ngForm" (ngSubmit)="saveProduct(form)">
+  <label>Nome:</label>
+  <input type="text" [(ngModel)]="product.nome" name="nome" required />
+
+  <label>Descrição:</label>
+  <input type="text" [(ngModel)]="product.descricao" name="descricao" required />
+
+  <label>Preço:</label>
+  <input type="number" [(ngModel)]="product.preco" name="preco" required min="0" />
+
+  <button type="submit" [disabled]="form.invalid">
+    {{ product.id ? 'Atualizar' : 'Cadastrar' }}
+  </button>
+</form>

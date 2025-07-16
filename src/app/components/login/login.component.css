@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background-color: #1a1a2e;
+  padding: 20px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  gap: 10px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: -12px;
+  margin-bottom: 2px;
+  display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: white;
+  background-color: #262636;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background-color: #3a3a57;
+  box-shadow: 0 0 6px #9b30ffaa;
+}
+
+button[type="submit"] {
+  margin-top: 8px;
+  padding: 14px 0;
+  background: linear-gradient(90deg, #6a0dad, #9b30ff);
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  user-select: none;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(90deg, #9b30ff, #6a0dad);
+}
+
+button[type="submit"]:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+

@@ -1,0 +1,21 @@
+<section class="users-section">
+  <h2 class="section-title">Usuários - Clientes</h2>
+  <ul class="user-list">
+    <li *ngFor="let cliente of clientes" class="user-item">
+      <span class="user-icon">👤</span>
+      <span class="username">{{ cliente.username }}</span>
+      <span class="user-id">(ID: {{ cliente.id }})</span>
+    </li>
+  </ul>
+</section>
+
+<section class="users-section">
+  <h2 class="section-title">Usuários - Admins</h2>
+  <ul class="user-list">
+    <li *ngFor="let admin of admins" class="user-item">
+      <span class="user-icon">👑</span>
+      <span class="username">{{ admin.username }}</span>
+      <span class="user-id">(ID: {{ admin.id }})</span>
+    </li>
+  </ul>
+</section>

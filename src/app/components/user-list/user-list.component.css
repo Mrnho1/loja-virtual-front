@@ -1,0 +1,55 @@
+.users-section {
+  background-color: #2c2c3f;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #c6a5ff;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #9b30ff;
+  padding-bottom: 8px;
+}
+
+.user-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: #3a3a57;
+  color: white;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+
+.user-item:hover {
+  background-color: #4e3a8c;
+}
+
+.user-icon {
+  font-size: 1.4rem;
+}
+
+.username {
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.user-id {
+  font-size: 0.9rem;
+  color: #c6a5ffcc;
+  font-style: italic;
+}
