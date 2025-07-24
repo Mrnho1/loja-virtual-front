@@ -83,3 +83,31 @@ input, button, textarea, select {
   background: none;
   border: none;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-container {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5),
+              0 10px 10px rgba(0, 0, 0, 0.35);
+}
+
+.cdk-overlay-backdrop {
+  background-color: rgba(18, 17, 41, 0.8) !important;
+}
+
+.custom-dialog-container {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background-color: #2c2c3f !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  max-width: 350px;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.5),
+    0 10px 10px rgba(0, 0, 0, 0.35);
+}
+
+

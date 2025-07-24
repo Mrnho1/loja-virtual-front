@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ProductDTO, ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
@@ -17,32 +17,32 @@ export class ProductFormComponent {
 
   product: ProductDTO = { nome: '', descricao: '', preco: 0 };
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private toastr: ToastrService) {}
 
-  ngOnChanges() {
-    // Se receber produto para editar, preenche o form
-    if (this.productToEdit) {
-      this.product = { ...this.productToEdit };
-    } else {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['productToEdit'] && this.productToEdit) {
+      this.product = { ...this.productToEdit }; // Clona para evitar bind direto
+    } else if (!this.productToEdit) {
       this.resetForm();
     }
   }
 
   saveProduct(form: NgForm) {
-    if (form.invalid) return;
+  if (form.invalid) return;
 
-    if (this.product.id) {
-      this.productService.update(this.product).subscribe(() => {
-        this.productSaved.emit();
-        this.resetForm();
-      });
-    } else {
-      this.productService.create(this.product).subscribe(() => {
-        this.productSaved.emit();
-        this.resetForm();
-      });
-    }
-  }
+  const isUpdate = !!this.product.id;
+  const operation = isUpdate
+    ? this.productService.update(this.product)
+    : this.productService.create(this.product);
+
+  operation.subscribe(() => {
+    this.toastr.success(
+      isUpdate ? 'Produto atualizado com sucesso!' : 'Produto criado com sucesso!'
+    );
+    this.productSaved.emit();
+    this.resetForm();
+  });
+}
 
   resetForm() {
     this.product = { nome: '', descricao: '', preco: 0 };

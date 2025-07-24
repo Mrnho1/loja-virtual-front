@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 import { AuthInterceptor } from './app/interceptors/auth.interceptors';
 import { provideToastr } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(AppComponent, {
   
@@ -19,6 +20,6 @@ bootstrapApplication(AppComponent, {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true,
-    },
+    }, provideAnimationsAsync(),
   ],
 }).catch(err => console.error(err));
