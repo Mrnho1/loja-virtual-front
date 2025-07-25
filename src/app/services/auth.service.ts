@@ -9,7 +9,7 @@ interface LoginResponse {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080/auth';
+  private baseUrl = 'https://loja-virtual-8juo.onrender.com/auth';
   private jwtHelper = new JwtHelperService();
 
   constructor(private http: HttpClient) {}

@@ -13,7 +13,7 @@ export interface ProductDTO {
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:8080/products';
+  private baseUrl = 'https://loja-virtual-8juo.onrender.com/products';
 
   constructor(private http: HttpClient) {}
 

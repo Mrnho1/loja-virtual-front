@@ -13,7 +13,7 @@ export interface User {
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080/auth/users';
+  private baseUrl = 'https://loja-virtual-8juo.onrender.com/auth/users';
 
   constructor(private http: HttpClient) { }
 

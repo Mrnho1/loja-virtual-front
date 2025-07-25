@@ -32,7 +32,7 @@ export class RegisterComponent {
     }
 
     this.http
-      .post('http://localhost:8080/auth/register', this.model, {
+      .post('https://loja-virtual-8juo.onrender.com/auth/register', this.model, {
         responseType: 'text',
       })
       .subscribe({
