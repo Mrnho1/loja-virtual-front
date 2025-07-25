@@ -9,11 +9,15 @@ import { AuthInterceptor } from './app/interceptors/auth.interceptors';
 import { provideToastr } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideHttpClient} from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
   
   providers: [
     provideRouter(routes),
+    provideHttpClient(),
+    provideAnimations(),
     provideToastr(),
     importProvidersFrom(HttpClientModule, BrowserAnimationsModule ),
     {
