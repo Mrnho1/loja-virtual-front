@@ -6,14 +6,14 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmedDialogComponent } from '../../shared/confirmed-dialog/confirmed-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-product-list',
   standalone: true,
   imports: [
     CommonModule,
     ProductFormComponent,
-    ConfirmedDialogComponent,
-    MatDialogModule,
+    MatDialogModule
   ],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
