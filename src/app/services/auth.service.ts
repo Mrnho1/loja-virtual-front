@@ -1,5 +1,6 @@
 // auth.service.ts
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, tap } from 'rxjs';
@@ -12,15 +13,23 @@ interface LoginResponse {
 export class AuthService {
   private baseUrl = 'https://loja-virtual-8juo.onrender.com/auth';
   private jwtHelper = new JwtHelperService();
+  private isBrowser: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   login(credentials: { username: string; password: string }): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseUrl}/login`, credentials).pipe(
       tap(res => {
-        localStorage.setItem('token', res.token);
-        const decoded = this.jwtHelper.decodeToken(res.token);
-        localStorage.setItem('userRole', decoded.role);
+        if (this.isBrowser) {
+          localStorage.setItem('token', res.token);
+          const decoded = this.jwtHelper.decodeToken(res.token);
+          localStorage.setItem('userRole', decoded.role);
+        }
       })
     );
   }
@@ -30,15 +39,18 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userRole');
+    if (this.isBrowser) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userRole');
+    }
   }
 
   getUserRole(): string | null {
-    return localStorage.getItem('userRole');
+    return this.isBrowser ? localStorage.getItem('userRole') : null;
   }
 
   isLoggedIn(): boolean {
+    if (!this.isBrowser) return false;
     const token = localStorage.getItem('token');
     return !!token && !this.jwtHelper.isTokenExpired(token);
   }
