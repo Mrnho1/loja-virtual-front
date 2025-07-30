@@ -1,0 +1,24 @@
+.cliente-fundo {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+  background: linear-gradient(135deg, #e6eef6, #d4e0ed);
+  padding: 2rem;
+  position: relative;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cliente-container {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 28px;
+  padding: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}

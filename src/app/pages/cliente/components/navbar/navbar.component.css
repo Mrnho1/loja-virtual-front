@@ -1,0 +1,95 @@
+.navbar {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 28px;
+}
+.nav-container {
+  max-width: 1290px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.navbar-logo span {
+  background: black;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  margin-right: 0.3rem;
+}
+
+.navbar-search {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 2rem;
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-search input {
+  flex: 1;
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.navbar-search button {
+  background: black;
+  color: white;
+  padding: 0 1.2rem;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-icons .icon {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-user img {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+.navbar-user span {
+  font-weight: 500;
+  font-size: 0.95rem;
+}

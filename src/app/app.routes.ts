@@ -6,7 +6,7 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
 import { LoginRegisterComponent } from './pages/login-register/login-register.component';
 
 export const routes: Routes = [
-  { path: 'login-register', component: LoginRegisterComponent }, // rota explícita para login-register
+  { path: 'login-register', component: LoginRegisterComponent },
   {
     path: 'admin',
     component: AdminComponent,
@@ -22,4 +22,5 @@ export const routes: Routes = [
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '', redirectTo: 'login-register', pathMatch: 'full' }, // rota raiz redireciona para login-register
   { path: '**', redirectTo: 'login-register' } // rota curinga redireciona para login-register
+  
 ];
