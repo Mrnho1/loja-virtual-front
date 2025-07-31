@@ -4,12 +4,13 @@ import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 
 @Component({
   selector: 'app-cliente',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, NavbarComponent],
+  imports: [CommonModule, ProductCardComponent, NavbarComponent, BannerComponent],
   templateUrl: './cliente.component.html',
   styleUrl: './cliente.component.css'
 })

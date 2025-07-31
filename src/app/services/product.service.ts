@@ -7,6 +7,7 @@ export interface ProductDTO {
   nome: string;
   descricao: string;
   preco: number;
+  imageUrl?: string; 
 }
 
 @Injectable({
@@ -14,6 +15,8 @@ export interface ProductDTO {
 })
 export class ProductService {
   private baseUrl = 'https://loja-virtual-8juo.onrender.com/products';
+  private cloudName = 'dzzkvggjb';
+  private unsignedUploadPreset = 'unsigned_preset';
 
   constructor(private http: HttpClient) {}
 
@@ -31,5 +34,14 @@ export class ProductService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
+   uploadImage(file: File): Observable<any> {
+    const url = `https://api.cloudinary.com/v1_1/${this.cloudName}/upload`;
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', this.unsignedUploadPreset);
+
+    return this.http.post(url, formData);
   }
 }

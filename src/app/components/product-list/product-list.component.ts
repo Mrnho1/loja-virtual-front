@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductFormComponent } from '../product-form/product-form.component';
 import { ProductDTO, ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmedDialogComponent } from '../../shared/confirmed-dialog/confirmed-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
 
 @Component({
   selector: 'app-product-list',
@@ -16,9 +15,9 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     MatDialogModule
   ],
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css',
+  styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   products: ProductDTO[] = [];
   selectedProduct?: ProductDTO;
 
@@ -33,14 +32,20 @@ export class ProductListComponent {
   }
 
   loadProducts() {
-    this.productService.listAll().subscribe((products) => {
-      this.products = products;
-      console.log('Produtos carregados:', this.products);
+    this.productService.listAll().subscribe({
+      next: (products) => {
+        this.products = products;
+        this.selectedProduct = undefined; // limpa seleção após recarregar
+      },
+      error: (err) => {
+        this.toastr.error('Erro ao carregar produtos');
+        console.error(err);
+      }
     });
   }
 
   editProduct(product: ProductDTO) {
-    this.selectedProduct = product;
+    this.selectedProduct = { ...product }; // cópia para evitar binding direto
   }
 
   deleteProduct(id: number) {
@@ -52,15 +57,21 @@ export class ProductListComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.productService.delete(id).subscribe(() => {
-          this.toastr.success('Produto excluído com sucesso!');
-          this.loadProducts();
+        this.productService.delete(id).subscribe({
+          next: () => {
+            this.toastr.success('Produto excluído com sucesso!');
+            this.loadProducts();
+          },
+          error: (err) => {
+            this.toastr.error('Erro ao excluir produto');
+            console.error(err);
+          }
         });
       }
     });
   }
+
   onProductSaved() {
-    this.selectedProduct = undefined;
     this.loadProducts();
   }
 }

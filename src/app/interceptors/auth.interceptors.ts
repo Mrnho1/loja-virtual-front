@@ -2,6 +2,11 @@
 import { HttpInterceptorFn, HttpRequest, HttpHandlerFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn) => {
+  // Ignora adicionar Authorization para uploads Cloudinary
+  if (req.url.includes('api.cloudinary.com')) {
+    return next(req);
+  }
+
   const token = localStorage.getItem('token');
 
   if (token) {

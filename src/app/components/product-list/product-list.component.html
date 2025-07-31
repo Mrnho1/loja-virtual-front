@@ -1,27 +1,31 @@
-  <app-product-form
-    [productToEdit]="selectedProduct"
-    (productSaved)="onProductSaved()"
-  ></app-product-form>
+<app-product-form [productToEdit]="selectedProduct" (productSaved)="onProductSaved()"></app-product-form>
 
-  <h2>Lista de Produtos</h2>
+<h2>Lista de Produtos</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Preço</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{ product.nome }}</td>
-        <td>{{ product.descricao }}</td>
-        <td>R$ {{ product.preco | number: '1.2-2' }}</td>
-        <td>
-          <button (click)="editProduct(product)">Editar</button>
-          <button (click)="deleteProduct(product.id!)">Excluir</button>
-      </tr>
-    </tbody>
-  </table>
+<table>
+  <thead>
+    <tr>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" alt="{{product.nome}}" class="product-image" />
+        <span *ngIf="!product.imageUrl">Sem imagem</span>
+
+      </td>
+      <td>{{ product.nome }}</td>
+      <td>{{ product.descricao }}</td>
+      <td>R$ {{ product.preco | number: '1.2-2' }}</td>
+      <td>
+        <button (click)="editProduct(product)">Editar</button>
+        <button (click)="deleteProduct(product.id!)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

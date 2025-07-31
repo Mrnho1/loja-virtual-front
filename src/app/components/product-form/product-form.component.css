@@ -71,4 +71,49 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
+/* --- Estilo do input file customizado --- */
 
+.file-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 130px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.file-btn {
+  background: linear-gradient(90deg, #6a0dad, #9b30ff);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.file-btn:hover {
+  background: linear-gradient(90deg, #9b30ff, #6a0dad);
+}
+
+.file-name {
+  color: #c6a5ff;
+  font-size: 14px;
+  font-style: italic;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
