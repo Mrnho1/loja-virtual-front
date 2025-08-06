@@ -1,0 +1,21 @@
+<section class="cliente-hero">
+  <div class="cliente-hero-content">
+    <div class="cliente-info">
+      <h2 class="cliente-titulo">Novos produtos</h2>
+      <p class="cliente-subtitulo">Confira os produtos mais recentes adicionados à nossa loja.</p>
+    </div>
+
+    <div class="cliente-img-area">
+      <div *ngFor="let produto of produtosRecentes" class="produto-card">
+        <img *ngIf="produto.imageUrl" [src]="produto.imageUrl" alt="{{ produto.nome }}" class="produto-imagem" />
+        
+        <div class="produto-info">
+          <h3>{{ produto.nome }}</h3>
+          <p>{{ produto.descricao }}</p>
+          <strong>R$ {{ produto.preco | number:'1.2-2' }}</strong><br />
+          <small>{{ produto.createdAt | date:'short' }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

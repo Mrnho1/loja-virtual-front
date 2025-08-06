@@ -32,17 +32,24 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    this.productService.listAll().subscribe({
-      next: (products) => {
-        this.products = products;
-        this.selectedProduct = undefined; // limpa seleção após recarregar
-      },
-      error: (err) => {
-        this.toastr.error('Erro ao carregar produtos');
-        console.error(err);
-      }
-    });
-  }
+  this.productService.listAll().subscribe({
+    next: (products) => {
+      this.products = products
+        .filter(p => !!p.nome && !!p.descricao)
+        .sort((a, b) => {
+          const dateA = new Date((a as any).createdAt || 0).getTime();
+          const dateB = new Date((b as any).createdAt || 0).getTime();
+          return dateB - dateA;
+        });
+      this.selectedProduct = undefined;
+    },
+    error: (err) => {
+      this.toastr.error('Erro ao carregar produtos');
+      console.error(err);
+    }
+  });
+}
+
 
   editProduct(product: ProductDTO) {
     this.selectedProduct = { ...product }; // cópia para evitar binding direto

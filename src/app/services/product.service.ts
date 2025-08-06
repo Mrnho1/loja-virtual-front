@@ -8,6 +8,7 @@ export interface ProductDTO {
   descricao: string;
   preco: number;
   imageUrl?: string; 
+  createdAt?: string;
 }
 
 @Injectable({

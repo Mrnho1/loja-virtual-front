@@ -5,12 +5,13 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { NewsProductsComponent } from './components/news-products/news-products.component';
 
 
 @Component({
   selector: 'app-cliente',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, NavbarComponent, BannerComponent],
+  imports: [CommonModule, ProductCardComponent, NavbarComponent, BannerComponent, NewsProductsComponent],
   templateUrl: './cliente.component.html',
   styleUrl: './cliente.component.css'
 })
